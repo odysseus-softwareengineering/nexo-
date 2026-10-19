@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f5e9">
+  <title>Finanças em Família</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Finanças em Família, início">
+        <span class="brand-mark">f<span>+</span></span>
+        <span><strong>finanças</strong><small>em família</small></span>
+      </a>
+      <div class="family-switch">
+        <div class="avatar family-avatar">F</div>
+        <div><strong>Família Oliveira</strong><small>Plano familiar</small></div>
+        <span class="chevron">⌄</span>
+      </div>
+      <p class="nav-label">MENU PRINCIPAL</p>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <button class="nav-item active" data-view="dashboard"><span>◫</span> Visão geral</button>
+        <button class="nav-item" data-view="transactions"><span>↕</span> Movimentações</button>
+        <button class="nav-item" data-view="budget"><span>▤</span> Orçamento</button>
+        <button class="nav-item" data-view="goals"><span>◎</span> Metas da família</button>
+        <button class="nav-item" data-view="children"><span>♧</span> Conta dos filhos <span class="nav-badge">2</span></button>
+        <button class="nav-item" data-view="learn"><span>✳</span> Aprender</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="tip-mini"><span class="tip-icon">✦</span><strong>Pequenas escolhas,<br>grandes conquistas.</strong><p>Um passo de cada vez transforma seus hábitos.</p><button data-view="learn">Ver dicas <span>↗</span></button></div>
+        <button class="nav-item" data-view="settings"><span>⚙</span> Configurações</button>
+        <div class="profile-row"><div class="avatar">MO</div><div><strong>Mariana Oliveira</strong><small>Administradora</small></div><span class="dots">•••</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark">f<span>+</span></span><strong>finanças em família</strong></div>
+        <div class="breadcrumb">Área da família <span>/</span> <strong id="pageCrumb">Visão geral</strong></div>
+        <div class="top-actions"><button class="icon-btn" aria-label="Notificações">♧<i></i></button><div class="avatar">MO</div></div>
+      </header>
+
+      <section class="view active" id="view-dashboard">
+        <div class="welcome-row"><div><p class="eyebrow">DOMINGO, 18 DE OUTUBRO</p><h1>Bom dia, Mariana <span>✳</span></h1><p class="subheading">Aqui está um resumo da saúde financeira da sua família.</p></div><button class="primary-btn" id="quickAdd">＋ Nova movimentação</button></div>
+        <div class="notice"><span class="notice-symbol">✦</span><div><strong>Vocês estão no caminho certo!</strong><p>O planejamento de hoje é a tranquilidade de amanhã. Continue acompanhando seus objetivos.</p></div><button class="notice-close" aria-label="Fechar aviso">×</button></div>
+        <div class="stats-grid">
+          <article class="stat-card balance-card"><div class="stat-head"><span>Saldo disponível</span><span class="stat-icon">◈</span></div><div class="stat-value" id="balanceValue">R$ 2.840,00</div><div class="stat-foot"><span class="positive">↗ 8,4%</span> <span>vs. mês passado</span></div><div class="balance-decoration">R$</div></article>
+          <article class="stat-card"><div class="stat-head"><span>Receitas do mês</span><span class="stat-icon green">↙</span></div><div class="stat-value" id="incomeValue">R$ 6.500,00</div><div class="stat-foot"><span class="positive">＋ Entradas</span><span> registradas</span></div><div class="mini-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+          <article class="stat-card"><div class="stat-head"><span>Despesas do mês</span><span class="stat-icon orange">↗</span></div><div class="stat-value" id="expenseValue">R$ 3.660,00</div><div class="stat-foot"><span class="muted">56,3%</span><span> da renda utilizada</span></div><div class="progress-line"><i id="expenseProgress" style="width:56.3%"></i></div></article>
+          <article class="stat-card"><div class="stat-head"><span>Economia acumulada</span><span class="stat-icon purple">◎</span></div><div class="stat-value" id="savedValue">R$ 840,00</div><div class="stat-foot"><span class="positive">Meta mensal</span><span> de R$ 1.000</span></div><div class="progress-line savings"><i id="savingsProgress" style="width:84%"></i></div></article>
+        </div>
+        <div class="content-grid">
+          <article class="panel chart-panel">
+            <div class="panel-heading"><div><h2>Fluxo financeiro</h2><p>Compare o que entra e sai do orçamento.</p></div><select id="chartPeriod" aria-label="Período do gráfico"><option value="week">Esta semana</option><option value="month" selected>Este mês</option></select></div>
+            <div class="chart-legend"><span><i class="legend-income"></i> Receitas</span><span><i class="legend-expense"></i> Despesas</span><div class="chart-total"><small>Economia no período</small><strong id="chartSaved">R$ 2.840,00</strong></div></div>
+            <div class="chart-wrap"><div class="y-axis"><span>R$ 7 mil</span><span>R$ 5 mil</span><span>R$ 3 mil</span><span>R$ 1 mil</span><span>R$ 0</span></div><div class="bar-chart" id="barChart" role="img" aria-label="Gráfico de colunas de receitas e despesas"></div></div>
+            <div class="chart-foot"><span class="chart-dot"></span><span id="chartInsight">Suas receitas estão acima das despesas. Continue assim!</span></div>
+          </article>
+          <article class="panel category-panel"><div class="panel-heading"><div><h2>Para onde vai o dinheiro?</h2><p>Despesas por categoria</p></div><button class="text-btn" data-view="budget">Ver tudo ↗</button></div>
+            <div class="donut-row"><div class="donut" id="donutChart"><div><strong id="donutTotal">R$ 3.660</strong><small>total gasto</small></div></div><div class="category-legend" id="categoryLegend"></div></div>
+            <div class="category-note"><span>✦</span><p><strong>Uma dica para você</strong><br>Revisar pequenos gastos pode liberar dinheiro para seus objetivos.</p></div>
+          </article>
+        </div>
+        <div class="lower-grid">
+          <article class="panel transactions-panel"><div class="panel-heading"><div><h2>Movimentações recentes</h2><p>Acompanhe as últimas atividades da família.</p></div><button class="text-btn" data-view="transactions">Ver todas ↗</button></div><div class="transaction-list" id="recentTransactions"></div></article>
+          <article class="panel goal-panel"><div class="panel-heading"><div><h2>Meta da família</h2><span class="goal-status">EM ANDAMENTO</span></div><button class="more-btn" aria-label="Mais opções">•••</button></div><div class="goal-illustration">⌂<span>✦</span></div><h3>Viagem em família</h3><p class="goal-description">Criando memórias sem comprometer o orçamento.</p><div class="goal-numbers"><strong id="goalCurrent">R$ 2.400</strong><span>de R$ 5.000</span></div><div class="progress-line goal-progress"><i id="goalProgress" style="width:48%"></i></div><div class="goal-bottom"><span id="goalPercent">48% concluído</span><button class="outline-btn" data-view="goals">Ver meta</button></div></article>
+        </div>
+      </section>
+
+      <section class="view" id="view-transactions"><div class="page-heading"><div><p class="eyebrow">CONTROLE FINANCEIRO</p><h1>Movimentações</h1><p class="subheading">Todas as receitas e despesas da família em um só lugar.</p></div><button class="primary-btn" id="addTransaction">＋ Nova movimentação</button></div><article class="panel"><div class="filters"><input id="transactionSearch" placeholder="⌕  Buscar movimentação..." aria-label="Buscar movimentação"><select id="typeFilter"><option value="all">Todos os tipos</option><option value="income">Receitas</option><option value="expense">Despesas</option></select><select id="memberFilter"><option value="all">Toda a família</option><option>Mariana</option><option>Rafael</option><option>Lucas</option><option>Sofia</option></select></div><div class="table-wrap"><table><thead><tr><th>Descrição</th><th>Categoria</th><th>Responsável</th><th>Data</th><th>Tipo</th><th>Valor</th></tr></thead><tbody id="allTransactions"></tbody></table></div></article></section>
+
+      <section class="view" id="view-budget"><div class="page-heading"><div><p class="eyebrow">PLANEJAMENTO</p><h1>Orçamento familiar</h1><p class="subheading">Defina limites e acompanhe os gastos por categoria.</p></div><button class="primary-btn" id="editBudget">✎ Ajustar limites</button></div><div class="stats-grid budget-summary"><article class="stat-card"><div class="stat-head">Orçamento planejado</div><div class="stat-value">R$ 4.800,00</div><div class="stat-foot">Limites definidos para o mês</div></article><article class="stat-card"><div class="stat-head">Total utilizado</div><div class="stat-value" id="budgetSpent">R$ 3.660,00</div><div class="stat-foot"><span class="positive">76,3%</span> do orçamento total</div></article><article class="stat-card"><div class="stat-head">Restante disponível</div><div class="stat-value" id="budgetRemaining">R$ 1.140,00</div><div class="stat-foot">Até o fim do mês</div></article></div><article class="panel"><div class="panel-heading"><div><h2>Limites por categoria</h2><p>Valores ilustrativos para o protótipo; personalize conforme sua realidade.</p></div></div><div id="budgetList" class="budget-list"></div></article></section>
+
+      <section class="view" id="view-goals"><div class="page-heading"><div><p class="eyebrow">PLANOS PARA O FUTURO</p><h1>Metas da família</h1><p class="subheading">Transforme planos em objetivos possíveis, um depósito de cada vez.</p></div><button class="primary-btn" id="newGoal">＋ Criar meta</button></div><div class="goal-cards" id="goalCards"></div><article class="panel educational-callout"><span class="callout-icon">✦</span><div><h2>O segredo é consistência, não perfeição.</h2><p>Escolha um valor realista para guardar regularmente. Reavalie a meta quando a renda ou as despesas mudarem.</p></div></article></section>
+
+      <section class="view" id="view-children"><div class="page-heading"><div><p class="eyebrow">EDUCAÇÃO FINANCEIRA NA PRÁTICA</p><h1>Conta dos filhos</h1><p class="subheading">Acompanhe os gastos de crianças e adolescentes com transparência e diálogo.</p></div><button class="primary-btn" id="addAllowance">＋ Registrar mesada</button></div><div class="child-grid" id="childCards"></div><article class="panel"><div class="panel-heading"><div><h2>Gastos recentes dos filhos</h2><p>Exemplo de monitoramento familiar — dados demonstrativos.</p></div><select id="childFilter"><option value="all">Todos os filhos</option><option>Lucas</option><option>Sofia</option></select></div><div id="childTransactions" class="child-transactions"></div></article><div class="privacy-note"><span>♧</span><p><strong>Transparência com respeito.</strong> Use o acompanhamento como oportunidade de ensinar escolhas, prioridades e responsabilidade — não como punição. Os dados deste protótipo ficam salvos apenas neste navegador.</p></div></section>
+
+      <section class="view" id="view-learn"><div class="page-heading"><div><p class="eyebrow">APRENDER PARA ESCOLHER MELHOR</p><h1>Educação financeira</h1><p class="subheading">Conceitos de Administração, Economia e Matemática Financeira para o dia a dia.</p></div></div><div class="learning-grid"><article class="learn-card"><span class="learn-icon mint">↗</span><span class="learn-tag">ECONOMIA</span><h2>Consumo consciente</h2><p>Antes de comprar, diferencie necessidade de desejo e avalie como a escolha afeta outras prioridades.</p><button class="text-btn learn-more" data-topic="consumo">Aprender conceito ↗</button></article><article class="learn-card"><span class="learn-icon yellow">％</span><span class="learn-tag">MATEMÁTICA FINANCEIRA</span><h2>Juros e descontos</h2><p>Entenda o custo real de uma compra parcelada e compare o preço à vista com o total financiado.</p><button class="text-btn learn-more" data-topic="juros">Aprender conceito ↗</button></article><article class="learn-card"><span class="learn-icon lilac">◎</span><span class="learn-tag">PLANEJAMENTO</span><h2>Reserva e poupança</h2><p>Guardar uma parte da renda ajuda a enfrentar imprevistos e alcançar objetivos de longo prazo.</p><button class="text-btn learn-more" data-topic="poupanca">Aprender conceito ↗</button></article><article class="learn-card simulator"><span class="learn-tag">SIMULADOR FINANCEIRO</span><h2>Quanto custa parcelar?</h2><p>Informe os valores para comparar as opções antes de decidir.</p><div class="simulator-fields"><label>Preço à vista (R$)<input id="cashPrice" type="number" min="0" value="900"></label><label>Parcelas<input id="installments" type="number" min="1" max="60" value="10"></label><label>Valor da parcela (R$)<input id="installmentValue" type="number" min="0" value="105"></label></div><button class="primary-btn" id="calculate">Calcular comparação</button><div id="simulationResult" class="simulation-result">Total parcelado: <strong>R$ 1.050,00</strong><br>Diferença: <strong>R$ 150,00 (16,7%)</strong> a mais que à vista.</div></article></div><div id="learningModal" class="inline-learning" hidden></div></section>
+
+      <section class="view" id="view-settings"><div class="page-heading"><div><p class="eyebrow">PREFERÊNCIAS</p><h1>Configurações</h1><p class="subheading">Personalize sua experiência no protótipo.</p></div></div><article class="panel settings-panel"><h2>Dados do protótipo</h2><p>Os registros são demonstrativos e armazenados localmente no navegador.</p><button class="outline-btn" id="resetData">Restaurar dados de demonstração</button><p class="settings-warning">Este é um protótipo front-end, não conectado a bancos ou contas reais. Não insira informações financeiras sensíveis.</p></article></section>
+      <footer class="app-footer"><span>Finanças em Família</span><span>Planejar • Organizar • Conquistar</span><span>Protótipo acadêmico · 2026</span></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="transactionModal" hidden><form class="modal" id="transactionForm"><div class="modal-heading"><div><p class="eyebrow">REGISTRO FINANCEIRO</p><h2>Nova movimentação</h2></div><button type="button" class="modal-close" data-close="transactionModal" aria-label="Fechar">×</button></div><label>Descrição<input name="description" required maxlength="70" placeholder="Ex.: Compra no mercado"></label><div class="form-row"><label>Tipo<select name="type"><option value="expense">Despesa</option><option value="income">Receita</option></select></label><label>Valor (R$)<input name="amount" type="number" min="0.01" step="0.01" required placeholder="0,00"></label></div><div class="form-row"><label>Categoria<select name="category"><option>Alimentação</option><option>Moradia</option><option>Transporte</option><option>Educação</option><option>Lazer</option><option>Saúde</option><option>Mesada</option><option>Salário</option><option>Outros</option></select></label><label>Responsável<select name="member"><option>Mariana</option><option>Rafael</option><option>Lucas</option><option>Sofia</option></select></label></div><label>Data<input name="date" type="date" required></label><div class="modal-actions"><button type="button" class="outline-btn" data-close="transactionModal">Cancelar</button><button type="submit" class="primary-btn">Salvar movimentação</button></div></form></div>
+  <div class="modal-backdrop" id="genericModal" hidden><form class="modal" id="genericForm"><div class="modal-heading"><div><p class="eyebrow">FINANÇAS EM FAMÍLIA</p><h2 id="genericTitle">Novo registro</h2></div><button type="button" class="modal-close" data-close="genericModal" aria-label="Fechar">×</button></div><div id="genericFields"></div><div class="modal-actions"><button type="button" class="outline-btn" data-close="genericModal">Cancelar</button><button type="submit" class="primary-btn">Salvar</button></div></form></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
